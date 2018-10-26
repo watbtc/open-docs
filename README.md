@@ -2,7 +2,14 @@
 
 ### 声明
 本系统仅开放给rfinex各产品组以及相关合作产品，凭分发的 app\_id 与 app\_secret 访问接口  
-关键接口做了签名验证，请阅读接口文档  
+关键接口做了签名验证，请阅读接口文档
+
+### 平台接口规则
+1.本平台接口规则依据Oauth2.0  
+[简易文档](https://oauth.net/2/)  
+[墙内文档](https://baike.baidu.com/item/OAuth2.0/6788617?fr=aladdin)
+	
+
 ### 签名说明
 ####签名字符串的构成
 1.http请求类型，GET POST DELETE PUT PATCH.  
