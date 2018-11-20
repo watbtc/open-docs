@@ -8,6 +8,7 @@ https://rfinex.com/oauth/access_token
 参数
 
 ```
+	app_id: 系统分配的app_id
 	code: 授权接口分发的code码
 	grant_type: "authorization_code" // 此处为固定值
 ```
@@ -33,6 +34,7 @@ https://rfinex.com/oauth/access_token
 参数
 
 ```
+	app_id: 系统分配的app_id
 	token: Rfinex的登录token
 	grant_type: "login" // 此处为固定值
 ```
