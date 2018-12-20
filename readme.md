@@ -13,10 +13,16 @@
 ##### [获取Access Token](https://github.com/CGems/open-docs/blob/master/oauth/用户接口/AccessToken.md)
 ##### [获取用户信息](https://github.com/CGems/open-docs/blob/master/oauth/用户接口/UserInfo.md)
 
-<hr>
+<br>
 
 ##### [转账至第三方应用](https://github.com/CGems/open-docs/blob/master/oauth/转账接口/转账至第三方应用.md)
 ##### [转账回用户账号](https://github.com/CGems/open-docs/blob/master/oauth/转账接口/转账回用户账号.md)
 ##### [单条转账记录查询](https://github.com/CGems/open-docs/blob/master/oauth/转账接口/单条转账记录查询.md)
 ##### [转账接口/同步回调](https://github.com/CGems/open-docs/blob/master/oauth/转账接口/同步回调.md)
 ##### [异步通知](https://github.com/CGems/open-docs/blob/master/oauth/转账接口/异步通知.md)
+
+<br>
+
+##### [日结账单汇总查询](https://github.com/CGems/open-docs/blob/master/oauth/对公业务接口/日结账单汇总查询.md)
+##### [日结账单明细查询](https://github.com/CGems/open-docs/blob/master/oauth/对公业务接口/日结账单明细查询.md)
+##### [代发邮件](https://github.com/CGems/open-docs/blob/master/oauth/对公业务接口/代发邮件.md)
