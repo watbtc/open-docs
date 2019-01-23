@@ -26,3 +26,4 @@
 ##### [日结账单汇总查询](https://github.com/rfinex/open-docs/blob/master/oauth/对公业务接口/日结账单汇总查询.md)
 ##### [日结账单明细查询](https://github.com/rfinex/open-docs/blob/master/oauth/对公业务接口/日结账单明细查询.md)
 ##### [代发邮件](https://github.com/rfinex/open-docs/blob/master/oauth/对公业务接口/代发邮件.md)
+##### [代发短信](https://github.com/rfinex/open-docs/blob/master/oauth/对公业务接口/代发短信.md)
