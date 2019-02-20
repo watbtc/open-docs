@@ -32,3 +32,119 @@
 	secret为分配的app_secret
 	将签名获得的字符串赋值给signature参数
 ```
+
+## 非对称签名（安全升级）
+#### 生成私钥
+```
+openssl genrsa -out my.pem
+```
+
+例子
+
+```
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAwRcSIkIiZaHlG5Qv7sGT6pi17+2OYkPnvxlx9QgB8XaGgFJ7
+Cqub1qn/q1yvDcXIfDCbS1CkVFkVFNKl5MzOBP08yq5fk21yZVCHb88q6zjhZ2Y6
+ec8iskSYsM080fe0UHuuPabtzNpEZBTpwcwkJNsWooNQGPSIsB/mxFRWvAKSyDac
+ddgvbnC+fo/jUN9BmjQF7YLr4NivygJWPCl4BI5F4hb7LwMs6wSFeEyzdjBEe6L4
+YFYknm3DEGCUmUuShLviTgKfNQZ7SxQSG5VoGqcu4WqKtmeHKFeGF+1/4Agx/k/G
+qnNgYk1aihrBQC38xfy8xZTksUNCysdowIMiywIDAQABAoIBAQCq7mF/MkyA6/CF
+mYlVMshexRFKdGG3W6Wr5jqbT5toxiQLNPj3WTN7tMJAUKwm5Q+14NGYuqq+gJ3I
+8TEqeqNmh0dppTO2rwy147QBpsO3t4LSpgzeCCAO7+q7mPRea4mUNejpavzYe+BP
+OLQ2eyED/27qLpSZgt/+Cj+fTYn6pEEpzNCGajfDxZt//lieN7BENPtNVB/qf4wn
+6ZETHlQYHRKVFaCvq9HDtGtxw5X+gnbVV5eymVuY03A+aXt5KN0h0o4khr+9d0MP
+r24+zVYfU1J9cSFh+xpvhaxASQ56OqOWgRft5gbsBBFtl4Ls6amJ2qyHC0Kp7/KG
+QkU9zjYBAoGBAPRHfkzfD6YPVax5Nn8qQOEuleh2QzH4XFl6Bvgwe/12D8FcagVf
+BKEejIji/+n6OTYJZN0p3XPvQl1ki3HRlZIV+Qo0j843BELsDWE4dWtvt8vDL6/O
++jHdFbOh2yVN25BHUETi7AW2aaI26dXXYvYXEB8+ZiExra2kff/+g3L5AoGBAMpa
+0Oe4aagXhxftOxC3I1NOgbxO8Cu5L2xOnX+qmoaZ2xlpHdN6FotOfSTwl3Lq+8Nc
+231NsdCECVPNCvYB3gE7k5yxSkW/fuZNS1MQ5N894pmwf+iELWJhAHbLZ7dTlNlF
+39Bc7g7EILsSMtLSExTbzt0z6NNcV8BmlVNLcbDjAoGABM0C5m/b1t+mR2V6dLVX
+4RURTShF2c2PwxJq4KXTSf/v/1TZoJFlfeUjzezoKqkIRs+Yc+BGweiJ3VwEgZAk
+6GIWKuUtjlf2dXo+KRL6+8mOSyri3QmsUR6PNqCPtgP5tLQyF6h+Cv6yxMVfgxxg
+jYWWg4auayiWyTraXxWZb8ECgYA9cnhvdRt4dLSMOniuKb6rZHKW+S2LSW+yJulC
+xE6qQvw6aiYperBv2wS7e+exeNO8zmzETxyI4h9m+CO08no0y5+WfGu+ZFknnB8c
+eUvW0pcF7ofY1pJlhmk6qae0DshrdgFx51ZO25XI2MzgIfSzZ9AYcdPooujuvvfn
+VEiQ2wKBgDNvqjEDOxqe4ViTb1zYC5NYajTUgvIVN5ULJPCkePfVs2IjNVbiDkfz
+ZIFaDvCAX2RfywcuK/coENyjqLE3vtaGEb8OSVQhuje2WR81WHyPsss4/4LKGIAE
+2j3STo5/jEDCJU1GuRm1KEU3fH49snyKvWZL+bmttp8O71t8VAjo
+-----END RSA PRIVATE KEY-----
+```
+
+#### 生成公钥,并将公钥上传至交易所平台
+```
+openssl rsa -in my.pem -pubout -out pub.pem
+```
+例子
+
+```
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwRcSIkIiZaHlG5Qv7sGT
+6pi17+2OYkPnvxlx9QgB8XaGgFJ7Cqub1qn/q1yvDcXIfDCbS1CkVFkVFNKl5MzO
+BP08yq5fk21yZVCHb88q6zjhZ2Y6ec8iskSYsM080fe0UHuuPabtzNpEZBTpwcwk
+JNsWooNQGPSIsB/mxFRWvAKSyDacddgvbnC+fo/jUN9BmjQF7YLr4NivygJWPCl4
+BI5F4hb7LwMs6wSFeEyzdjBEe6L4YFYknm3DEGCUmUuShLviTgKfNQZ7SxQSG5Vo
+Gqcu4WqKtmeHKFeGF+1/4Agx/k/GqnNgYk1aihrBQC38xfy8xZTksUNCysdowIMi
+ywIDAQAB
+-----END PUBLIC KEY-----
+```
+
+#### 签名字符串的构成
+1.http请求类型，GET POST DELETE PUT PATCH.  
+2.请求的path.  
+3.请求的参数.(其中signature参数不参与签名)  
+
+以上3部分以'|'连接
+注： 构建签名字符串时，各参数按字母升序排列
+#### 签名字符串示例
+
+```
+payload = "GET|/oauth/transfers/enterprise_cashier|access_token=liixi0uuzhqcyar952w6v4okr6aqmoli&app_id=0493320dff91aa9bd0c85c75b91b36d2bcb7df9f78aa79af9fefb3ba0e68baea&amount=1&call_back_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&currency=eth&notify_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&sn=123456789&timestamp=1540539254"
+```
+
+签名算法  
+1.构建待签名的字符串。  
+2.使用私钥签名。  
+3.将签名所得的字符串做Base64编码。 
+
+
+ruby算法示例
+
+```
+pkey = OpenSSL::PKey::RSA.new "-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAwRcSIkIiZaHlG5Qv7sGT6pi17+2OYkPnvxlx9QgB8XaGgFJ7
+Cqub1qn/q1yvDcXIfDCbS1CkVFkVFNKl5MzOBP08yq5fk21yZVCHb88q6zjhZ2Y6
+ec8iskSYsM080fe0UHuuPabtzNpEZBTpwcwkJNsWooNQGPSIsB/mxFRWvAKSyDac
+ddgvbnC+fo/jUN9BmjQF7YLr4NivygJWPCl4BI5F4hb7LwMs6wSFeEyzdjBEe6L4
+YFYknm3DEGCUmUuShLviTgKfNQZ7SxQSG5VoGqcu4WqKtmeHKFeGF+1/4Agx/k/G
+qnNgYk1aihrBQC38xfy8xZTksUNCysdowIMiywIDAQABAoIBAQCq7mF/MkyA6/CF
+mYlVMshexRFKdGG3W6Wr5jqbT5toxiQLNPj3WTN7tMJAUKwm5Q+14NGYuqq+gJ3I
+8TEqeqNmh0dppTO2rwy147QBpsO3t4LSpgzeCCAO7+q7mPRea4mUNejpavzYe+BP
+OLQ2eyED/27qLpSZgt/+Cj+fTYn6pEEpzNCGajfDxZt//lieN7BENPtNVB/qf4wn
+6ZETHlQYHRKVFaCvq9HDtGtxw5X+gnbVV5eymVuY03A+aXt5KN0h0o4khr+9d0MP
+r24+zVYfU1J9cSFh+xpvhaxASQ56OqOWgRft5gbsBBFtl4Ls6amJ2qyHC0Kp7/KG
+QkU9zjYBAoGBAPRHfkzfD6YPVax5Nn8qQOEuleh2QzH4XFl6Bvgwe/12D8FcagVf
+BKEejIji/+n6OTYJZN0p3XPvQl1ki3HRlZIV+Qo0j843BELsDWE4dWtvt8vDL6/O
++jHdFbOh2yVN25BHUETi7AW2aaI26dXXYvYXEB8+ZiExra2kff/+g3L5AoGBAMpa
+0Oe4aagXhxftOxC3I1NOgbxO8Cu5L2xOnX+qmoaZ2xlpHdN6FotOfSTwl3Lq+8Nc
+231NsdCECVPNCvYB3gE7k5yxSkW/fuZNS1MQ5N894pmwf+iELWJhAHbLZ7dTlNlF
+39Bc7g7EILsSMtLSExTbzt0z6NNcV8BmlVNLcbDjAoGABM0C5m/b1t+mR2V6dLVX
+4RURTShF2c2PwxJq4KXTSf/v/1TZoJFlfeUjzezoKqkIRs+Yc+BGweiJ3VwEgZAk
+6GIWKuUtjlf2dXo+KRL6+8mOSyri3QmsUR6PNqCPtgP5tLQyF6h+Cv6yxMVfgxxg
+jYWWg4auayiWyTraXxWZb8ECgYA9cnhvdRt4dLSMOniuKb6rZHKW+S2LSW+yJulC
+xE6qQvw6aiYperBv2wS7e+exeNO8zmzETxyI4h9m+CO08no0y5+WfGu+ZFknnB8c
+eUvW0pcF7ofY1pJlhmk6qae0DshrdgFx51ZO25XI2MzgIfSzZ9AYcdPooujuvvfn
+VEiQ2wKBgDNvqjEDOxqe4ViTb1zYC5NYajTUgvIVN5ULJPCkePfVs2IjNVbiDkfz
+ZIFaDvCAX2RfywcuK/coENyjqLE3vtaGEb8OSVQhuje2WR81WHyPsss4/4LKGIAE
+2j3STo5/jEDCJU1GuRm1KEU3fH49snyKvWZL+bmttp8O71t8VAjo
+-----END RSA PRIVATE KEY-----"
+
+signature = Base64.encode64(pkey.sign_pss("SHA256", payload, salt_length: :max, mgf1_hash: "SHA256"))
+
+payload为签名字符串
+将签名获得的字符串赋值给signature参数
+签名结果示例：
+pzGc1EvHvzaa3Xb/m/GKNUpltWQbP9MiR3HyKM82LwsUKGEAXbYqhXStTkKm\nD5PMzStypcAvsXW8YcaNV0PrT7htq05krXem0lMVIzpBi2FUez8t8Qok7Ctd\ns5+lQPyW5X2zmmC1blBcKfhYcYhbmpE/jT6MMCqx7rfM9ZaPTNd4ODX3hc9b\nfwaZk8+6xcRaT3jNkFu8euZxBEKfN9WBVhQioemfqVEfekj5/OFI3TutOebY\nLwIHK38W/qTOoQuqOv216/vqCJv9mE5baZJDA4fInLfppSlrjfZZQNTSuGVE\nFmRvjHR0godKZfHMpyKINE84AZMgVSMH58/UhjCXrw==\n
+```
+
+
