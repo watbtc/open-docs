@@ -34,6 +34,7 @@
 ```
 
 ## 非对称签名（安全升级）
+### 应用签名，平台验签
 #### 生成私钥
 ```
 openssl genrsa -out my.pem
@@ -92,14 +93,14 @@ ywIDAQAB
 #### 签名字符串的构成
 1.http请求类型，GET POST DELETE PUT PATCH.  
 2.请求的path.  
-3.请求的参数.(其中signature参数不参与签名)  
+3.请求的参数(其中signature参数不参与签名),追加参数sign_type，其值为private_key  
 
 以上3部分以'|'连接
 注： 构建签名字符串时，各参数按字母升序排列
 #### 签名字符串示例
 
 ```
-payload = "GET|/oauth/transfers/enterprise_cashier|access_token=liixi0uuzhqcyar952w6v4okr6aqmoli&app_id=0493320dff91aa9bd0c85c75b91b36d2bcb7df9f78aa79af9fefb3ba0e68baea&amount=1&call_back_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&currency=eth&notify_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&sn=123456789&timestamp=1540539254"
+payload = "GET|/oauth/transfers/enterprise_cashier|access_token=liixi0uuzhqcyar952w6v4okr6aqmoli&amount=1&app_id=0493320dff91aa9bd0c85c75b91b36d2bcb7df9f78aa79af9fefb3ba0e68baea&call_back_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&currency=eth&notify_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&sign_type=private_key&sn=123456789&timestamp=1540539254"
 ```
 
 签名算法  
@@ -144,7 +145,10 @@ signature = Base64.encode64(pkey.sign_pss("SHA256", payload, salt_length: :max, 
 payload为签名字符串
 将签名获得的字符串赋值给signature参数
 签名结果示例：
-pzGc1EvHvzaa3Xb/m/GKNUpltWQbP9MiR3HyKM82LwsUKGEAXbYqhXStTkKm\nD5PMzStypcAvsXW8YcaNV0PrT7htq05krXem0lMVIzpBi2FUez8t8Qok7Ctd\ns5+lQPyW5X2zmmC1blBcKfhYcYhbmpE/jT6MMCqx7rfM9ZaPTNd4ODX3hc9b\nfwaZk8+6xcRaT3jNkFu8euZxBEKfN9WBVhQioemfqVEfekj5/OFI3TutOebY\nLwIHK38W/qTOoQuqOv216/vqCJv9mE5baZJDA4fInLfppSlrjfZZQNTSuGVE\nFmRvjHR0godKZfHMpyKINE84AZMgVSMH58/UhjCXrw==\n
+JXqYhBNhvut2K/WjH0pYehydpzk+R+W13qHpDr8oyNY+G6MzZfZ7R2p/Vnstw2hNNv+4li26wstdmzd14HHzylBkPoH2qxoWKxYjQMwOFl51s+zUw9BzN/PK3hQ4vPWkfHLL6wcn8YLj87qO4NIRPdeb1rUmBW8dFWvGzSQirciVpG8NibcePpDjsz04VANGhPcMn/3wftf53mg8HHzFUwVgdXy5WFMiX5meZQhwfMJ2hRgvgZED7ilkdrZQbVKQhOPs8BsmROyrfecLeB+byp6eosrMjE1ndq15tINT8KvUIcgPjq9P1fLgdm3QK5vVsR0yBi4YRNYzNjV0pYowsg==
 ```
 
+### 平台签名，应用验签
+用户转账后，会触发同步回调和异步通知到应用服务器，原先使用签名方式即改为公私钥签名方式，算法同上
+#### 平台发放公钥给应用，人工操作
 
