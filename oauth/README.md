@@ -21,7 +21,9 @@
 #### 签名字符串示例
 
 ```
-"GET|/oauth/transfers/enterprise_cashier|access_token=liixi0uuzhqcyar952w6v4okr6aqmoli&app_id=0493320dff91aa9bd0c85c75b91b36d2bcb7df9f78aa79af9fefb3ba0e68baea&amount=1&call_back_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&currency=eth&notify_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&sn=123456789&timestamp=1540539254"
+"GET|/oauth/transfers/cashier|access_token=2tld4x191p51d5ciqfht7nihsutsed3x&amount=0.00001&app_id=cbbf0b84a2a4888d401d2ed12e54b2393dcd31e23f52de8edfb7264ff65fade4&call_back_url=http://www.unicoin365.com/n/transferCallBackUrl/RFINEX.html&currency=eth&notify_url=http://www.unicoin365.com/n/transferCallback/RFINEX.html&sn=1161&timestamp=1551430060"
+
+bec5e6df9eec26ca4e7d4f198fa6df51dafdfa5b9f7530c8796f2e5bf3575d08
 ```
 
 算法
