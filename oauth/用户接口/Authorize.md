@@ -12,8 +12,10 @@ https://rfinex.com/oauth/authorize
 	call_back_url:	用户授权后的回调地址,此地址的host必须与预设的回调host一致
 ```
 
-返回参数
+返回请求类型 POST
 
-```
+返回请求的URL call_back_url
+返回参数
+``` 
  code：授权码，10分钟有效期
 ```
