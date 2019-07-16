@@ -102,7 +102,7 @@ ywIDAQAB
 #### 签名字符串示例
 
 ```
-payload = "GET|/oauth/transfers/enterprise_cashier|access_token=liixi0uuzhqcyar952w6v4okr6aqmoli&amount=1&app_id=0493320dff91aa9bd0c85c75b91b36d2bcb7df9f78aa79af9fefb3ba0e68baea&call_back_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&currency=eth&notify_url=https%3a%2f%2ftest.rfinex.com%2fa%2fb%2fc%3fd%3d1%26e%3d2&sign_type=private_key&sn=123456789&timestamp=1540539254"
+payload = "GET|/oauth/transfers/enterprise_cashier|access_token=liixi0uuzhqcyar952w6v4okr6aqmoli&amount=1&app_id=0493320dff91aa9bd0c85c75b91b36d2bcb7df9f78aa79af9fefb3ba0e68baea&call_back_url=https%3a%2f%2ftest.rfinex.vip%2fa%2fb%2fc%3fd%3d1%26e%3d2&currency=eth&notify_url=https%3a%2f%2ftest.rfinex.vip%2fa%2fb%2fc%3fd%3d1%26e%3d2&sign_type=private_key&sn=123456789&timestamp=1540539254"
 ```
 
 签名算法  

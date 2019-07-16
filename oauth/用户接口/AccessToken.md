@@ -2,7 +2,7 @@
 ## AccessToken换取
 GET
 `
-https://rfinex.com/oauth/access_token
+https://rfinex.vip/oauth/access_token
 `
 
 参数
@@ -28,7 +28,7 @@ https://rfinex.com/oauth/access_token
 
 GET
 `
-https://rfinex.com/oauth/access_token
+https://rfinex.vip/oauth/access_token
 `
 
 参数

@@ -3,7 +3,7 @@
 GET
 
 `
-https://rfinex.com/oauth/user_info
+https://rfinex.vip/oauth/user_info
 `
 
 参数

@@ -2,7 +2,7 @@
 
 GET
 `
-https://rfinex.com/oauth/authorize
+https://rfinex.vip/oauth/authorize
 `
 
 参数

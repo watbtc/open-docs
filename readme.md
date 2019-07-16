@@ -1,6 +1,7 @@
 ## Rfinex新版接口简介
 
 ### 1.客户端专用接口
+##### [行情接口](https://github.com/rfinex/open-docs/blob/master/api/行情接口.md)
 ##### [下单接口](https://github.com/rfinex/open-docs/blob/master/api/下单接口.md)
 ##### [下多单接口](https://github.com/rfinex/open-docs/blob/master/api/下多单接口.md)
 ##### [撤单接口](https://github.com/rfinex/open-docs/blob/master/api/撤单接口.md)
