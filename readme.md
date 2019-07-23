@@ -5,6 +5,7 @@
 ##### [下单接口](https://github.com/rfinex/open-docs/blob/master/api/下单接口.md)
 ##### [下多单接口](https://github.com/rfinex/open-docs/blob/master/api/下多单接口.md)
 ##### [撤单接口](https://github.com/rfinex/open-docs/blob/master/api/撤单接口.md)
+##### [成交查询](https://github.com/rfinex/open-docs/blob/master/api/成交查询.md)
 ##### [按市场批量撤单接口](https://github.com/rfinex/open-docs/blob/master/api/全市场撤单接口.md)
 ##### [签名算法](https://github.com/rfinex/open-docs/blob/master/api/签名算法.md)
 
