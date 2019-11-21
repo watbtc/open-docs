@@ -10,7 +10,7 @@ https://rfinex.vip/oauth/user_info
 
 ```
 	access_token: 用户的身份令牌
-  app_id: ''
+  	app_id: ''
 ```
 
 返回
