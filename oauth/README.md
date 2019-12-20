@@ -26,6 +26,8 @@
 bec5e6df9eec26ca4e7d4f198fa6df51dafdfa5b9f7530c8796f2e5bf3575d08
 ```
 
+调试签名算法的网址[http://encode.chahuo.com/](http://encode.chahuo.com/)
+
 算法
 
 ```
